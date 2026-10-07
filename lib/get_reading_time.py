@@ -4,7 +4,11 @@ def get_reading_time(filename):
 
     if filename[-4:] != ".txt":
         text = filename
-        reading_time = round(len(text.split())/200)
+        text_length = len(text.split())
+
+        if text_length == 1:
+             return "There is only 1 word here so it won't take long to read at all. If you meant to upload a file, ensure that it is a .txt file."
+        reading_time = round(text_length/200)
 
     else:
         with open(filename, "r") as contents:

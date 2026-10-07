@@ -15,6 +15,12 @@ def test_text_is_empty():
 def test_text_is_just_spaces():
     assert get_reading_time("text_just_spaces.txt") == "There is no text here to read."
 
+def test_one_word_string_entered():
+    assert get_reading_time("hello") == "There is only 1 word here so it won't take long to read at all. If you meant to upload a file, ensure that it is a .txt file."
+
+def test_incorrect_file_format():
+    assert get_reading_time("hello.json") == "There is only 1 word here so it won't take long to read at all. If you meant to upload a file, ensure that it is a .txt file."
+
 def test_string_less_than_1_minute():
     assert get_reading_time("this is quite a short message") == "This text will take less than a minute to read."
 
